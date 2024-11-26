@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<livraria>
+    <livro id="1">
+        <nome>Nome do Vento</nome>
+        <publicacao>1998</publicacao>
+        <autor>Italo</autor>        
+    </livro>
+    <livro id="2">
+        <nome>Game of Thrones</nome>
+        <publicacao>1980</publicacao>
+        <autor>George R.R. Martin</autor>        
+    </livro>
+</livraria>
