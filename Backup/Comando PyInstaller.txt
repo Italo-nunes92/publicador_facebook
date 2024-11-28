@@ -1,2 +1,3 @@
 pyinstaller --noconfirm --onefile -c --add-data="filtro_das_chaves.py:." --add-data="coletador_token.py:." publicador_jm.py
 pyinstaller --noconfirm --onefile -c --add-data="configEmail.py:." --icon="logo_email.ico" email_JM_Todas_Lojas.py
+pyinstaller --noconfirm --onefile -c --add-data="package/configuracoes.py:." --add-data="package/funcoes_jb.py:." --add-data="package/imagens.py:." publicador_jm.py

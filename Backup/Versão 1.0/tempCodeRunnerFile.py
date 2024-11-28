@@ -1,0 +1,1 @@
+ar.set_description_str(f's {i}{i}{i}{i}')
