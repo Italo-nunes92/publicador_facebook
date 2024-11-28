@@ -7,7 +7,7 @@ import os
 from tqdm import tqdm
 os.system('cls')
 
-LOCAL = '\\\\192.42.103.17\\propaganda\\publicador_facebook\\'
+LOCAL = '\\\\192.42.103.17\\propaganda\\publicador_facebook\\Backup\\Versão 1.0\\'
 TOKENS_ARQUIVO = f'{LOCAL}tokens_lojas.json'
 
 try:

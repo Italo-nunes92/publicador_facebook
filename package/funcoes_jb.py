@@ -5,11 +5,19 @@ from .configuracoes import LOCAL_RAIZ, JSON, MENSAGENS, ERROS, data_hora, hora_a
 def erro_log(msg):
     with open((ERROS / 'erro_log.txt'), 'a',encoding='utf8') as arquivo:
             arquivo.write(f'{data_hora} : {msg}\n')
-
-def get_data():
+            
+def conectar_token_pag(pag):
+    graph = facebook.GraphAPI(access_token = pag)
+    return graph
+            
+def conectar_token():
     with open((LOCAL_RAIZ / 'token.txt'), 'r', encoding='utf8') as arquivo:
                 token = arquivo.read()
     graph = facebook.GraphAPI(access_token = token)
+    return graph
+
+def get_data():
+    graph = conectar_token()
     token_pagina = graph.get_connections('me','accounts?limit=50')
     
     return token_pagina
@@ -72,7 +80,7 @@ def publicar_post(loja, img_selc, token):
         id_postagem = pag.put_photo(image=open(img_selc, 'rb'), message=msg)
         dia_chave = f'{dia_mes_ano}-{hora_atual}'
 
-        postagem_chave = {dia_chave: str(id_postagem.get('id'))}
+        postagem_chave = {dia_chave: str(id_postagem.get('post_id'))}
         postagem_loja = LOCAL_RAIZ / 'postagens' / (loja + '.json' )
 
         try:
@@ -104,14 +112,11 @@ def publicar_post(loja, img_selc, token):
         
 def excluir_publicacao(loja, token, selecao):
     
-    postagem_loja = LOCAL_RAIZ / 'postagens' / (loja + '.json' )
-
-    with open(postagem_loja, 'r', encoding='utf8') as arquivo:
-            post = json.load(arquivo)
-
+    post = abrir_postagens(loja)
     pag = facebook.GraphAPI(token)
     
     try:
+        postagem_loja = LOCAL_RAIZ / 'postagens' / (loja + '.json' )
         objeto_id = pag.get_object(id=post.get(selecao),fields='id')
         pag.delete_object(id=objeto_id['id'])
         print(f'Postagem da loja {loja} excluida com sucesso')
@@ -123,4 +128,11 @@ def excluir_publicacao(loja, token, selecao):
         
     except facebook.GraphAPIError:
         print('Publicação já foi excluida nessa página - '+ loja )
+        
+def abrir_postagens(loja):
+    postagem_loja = LOCAL_RAIZ / 'postagens' / (loja + '.json' )
+
+    with open(postagem_loja, 'r', encoding='utf8') as arquivo:
+            post = json.load(arquivo)
+    return post
         

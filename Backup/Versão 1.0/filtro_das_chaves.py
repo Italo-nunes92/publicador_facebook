@@ -8,7 +8,7 @@ nova_lista = {}
 ordenado = []
 lista_ordenada = {}
 
-LOCAL_RAIZ = '\\\\192.42.103.17\\propaganda\\publicador_facebook\\'
+LOCAL_RAIZ = '\\\\192.42.103.17\\propaganda\\publicador_facebook\\Backup\\Versão 1.0\\'
 
 with open(f'{LOCAL_RAIZ}novos_tokens.json', 'r') as arquivo:
         arquivos_bruto = json.load(arquivo)
@@ -28,7 +28,7 @@ for i in range(len(ordenado)):
     lista_ordenada[ordenado[i][0]] = ordenado[i][1]
 
 
-LOCAL_RAIZ = '\\\\192.42.103.17\\propaganda\\publicador_facebook\\'
+LOCAL_RAIZ = '\\\\192.42.103.17\\propaganda\\publicador_facebook\\Backup\\Versão 1.0\\'
 with open(f'{LOCAL_RAIZ}tokens_lojas.json', 'w', encoding='utf8') as arquivo:
                 json.dump(lista_ordenada, arquivo, indent=2, ensure_ascii=False)
 
