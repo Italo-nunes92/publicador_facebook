@@ -1,4 +1,4 @@
-from package.funcoes_jb import publicar_post, get_tokens,excluir_publicacao
+from package.funcoes_jb import publicar_post, get_tokens
 from package.imagens import selecionar_imagem
 from time import sleep
 
@@ -21,6 +21,4 @@ for loja in lojas.keys():
         break
     
 
-# for loja in lojas.keys():
-#     token = lojas.get(loja)
-#     excluir_publicacao(loja,token[0],'28/11/2024-12')
+
