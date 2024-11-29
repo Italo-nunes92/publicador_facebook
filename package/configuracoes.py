@@ -1,7 +1,7 @@
 from pathlib import Path
 from datetime import datetime
 
-LOCAL_RAIZ = Path().absolute()
+LOCAL_RAIZ = Path('\\\\192.42.103.17\\propaganda\\publicador_facebook')
 MENSAGENS = LOCAL_RAIZ / 'msg'
 IMAGENS = LOCAL_RAIZ / 'img'
 ERROS = LOCAL_RAIZ / 'erros'
