@@ -24,13 +24,13 @@ def compactar_imagem(img):
 
 def selecionar_imagem():
     cronogama =[
-        ['img01.png','img11.png','img20.png','img02.png'],
-        ['img12.png','img21.png','img03.png','img13.png'],
-        ['img22.png','img04.png','img14.png','img23.png'],
-        ['img05.png','img15.png','img24.png','img06.png'],
-        ['img16.png','img25.png','img07.png','img17.png'],
-        ['img26.png','img08.png','img18.png','img27.png'],
-        ['img09.png','img19.png','img28.png','img10.png']
+        ['img01.jpg','img11.jpg','img20.jpg','img02.jpg'],
+        ['img12.jpg','img21.jpg','img03.jpg','img13.jpg'],
+        ['img22.jpg','img04.jpg','img14.jpg','img23.jpg'],
+        ['img05.jpg','img15.jpg','img24.jpg','img06.jpg'],
+        ['img16.jpg','img25.jpg','img07.jpg','img17.jpg'],
+        ['img26.jpg','img08.jpg','img18.jpg','img27.jpg'],
+        ['img09.jpg','img19.jpg','img28.jpg','img10.jpg']
     ]
 
     if hora_atual in range(0,11):
@@ -44,6 +44,7 @@ def selecionar_imagem():
 
     img = IMAGENS / (cronogama[hr.weekday()][img])
     
-    compactar_imagem(img)
+    # Usar apenas em imagens PNG
+    # compactar_imagem(img) 
     
     return img
