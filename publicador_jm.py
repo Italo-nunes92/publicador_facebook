@@ -15,7 +15,8 @@ for loja in lojas.keys():
         lojas = get_tokens()
         token = lojas.get(loja)
         print('Novos Tokens foram carregados com sucesso.')
-        publicar_post(loja,img,token[0])
+        try: publicar_post(loja,img,token[0])
+        except: continue
     except FileNotFoundError:
         print('Imagem ou Mensagem não encontrada, consulte o Log de Erros.')
         break
