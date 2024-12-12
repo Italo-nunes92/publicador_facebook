@@ -11,7 +11,7 @@ for loja in lojas.keys():
         publicar_post(loja,img,token[0])
     except KeyError:
         print(f'Página {loja} {token[1]} atualizou o token.')
-        sleep(10)
+        sleep(60)
         lojas = get_tokens()
         token = lojas.get(loja)
         print('Novos Tokens foram carregados com sucesso.')

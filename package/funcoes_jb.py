@@ -1,10 +1,10 @@
 import facebook
 import json
-from .configuracoes import LOCAL_RAIZ, JSON, MENSAGENS, ERROS, data_hora, hora_atual, dia_mes_ano
+from .configuracoes import LOCAL_RAIZ, JSON, MENSAGENS, ERROS, getDataHora, getHoraAtual, getDiaMesAno
 
 def erro_log(msg):
     with open((ERROS / 'erro_log.txt'), 'a',encoding='utf8') as arquivo:
-            arquivo.write(f'{data_hora} : {msg}\n')
+            arquivo.write(f'{getDataHora()} : {msg}\n')
             
 def conectar_token_pag(pag):
     graph = facebook.GraphAPI(access_token = pag)
@@ -78,7 +78,7 @@ def publicar_post(loja, img_selc, token):
                 
         pag = facebook.GraphAPI(token)
         id_postagem = pag.put_photo(image=open(img_selc, 'rb'), message=msg)
-        dia_chave = f'{dia_mes_ano}-{hora_atual}'
+        dia_chave = f'{getDiaMesAno()}-{getHoraAtual()}'
 
         postagem_chave = {dia_chave: str(id_postagem.get('post_id'))}
         postagem_loja = LOCAL_RAIZ / 'postagens' / (loja + '.json' )
