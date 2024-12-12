@@ -1,4 +1,4 @@
-from .configuracoes import IMAGENS, hr, hora_atual
+from .configuracoes import IMAGENS, hr, getHoraAtual
 from PIL import Image
 import requests
 
@@ -32,6 +32,8 @@ def selecionar_imagem():
         ['img26.jpg','img08.jpg','img18.jpg','img27.jpg'],
         ['img09.jpg','img19.jpg','img28.jpg','img10.jpg']
     ]
+    
+    hora_atual = getHoraAtual()
 
     if hora_atual in range(0,11):
         img = 0
@@ -48,3 +50,4 @@ def selecionar_imagem():
     # compactar_imagem(img) 
     
     return img
+

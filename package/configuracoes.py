@@ -7,6 +7,7 @@ IMAGENS = LOCAL_RAIZ / 'img'
 ERROS = LOCAL_RAIZ / 'erros'
 JSON = LOCAL_RAIZ / 'json'
 
+hr = datetime.today()
 
 def getDataHora():
     hr = datetime.today()

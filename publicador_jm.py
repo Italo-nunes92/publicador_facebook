@@ -5,6 +5,7 @@ from time import sleep
 lojas = get_tokens()
 img = selecionar_imagem()
 
+
 for loja in lojas.keys():
     try:
         token = lojas.get(loja)
