@@ -1,5 +1,7 @@
 package/.env
+package/__pycache__/
 Backup/
 package/local.py
 deletar_post.exe
 publicador_jm.exe
+__pycache__/

@@ -9,7 +9,6 @@ ERROS = LOCAL_RAIZ / 'erros'
 JSON = LOCAL_RAIZ / 'json'
 ENV = LOCAL_RAIZ / 'package' / '.env'
 
-print(LOCAL_RAIZ)
 hr = datetime.today()
 
 def getDataHora():
