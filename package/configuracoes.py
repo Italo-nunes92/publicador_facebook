@@ -1,7 +1,8 @@
-from pathlib import Path
-from datetime import datetime
 
-LOCAL_RAIZ = Path('\\\\192.42.103.17\\propaganda\\publicador_facebook')
+from datetime import datetime
+from .local import LOCAL_RAIZ
+
+
 MENSAGENS = LOCAL_RAIZ / 'msg'
 IMAGENS = LOCAL_RAIZ / 'img'
 ERROS = LOCAL_RAIZ / 'erros'
