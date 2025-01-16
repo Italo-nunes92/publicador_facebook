@@ -1,14 +1,15 @@
 
 from datetime import datetime
-from .local import LOCAL_RAIZ
+from pathlib import Path
 
-
+LOCAL_RAIZ = Path(__file__).absolute().parent.parent
 MENSAGENS = LOCAL_RAIZ / 'msg'
 IMAGENS = LOCAL_RAIZ / 'img'
 ERROS = LOCAL_RAIZ / 'erros'
 JSON = LOCAL_RAIZ / 'json'
 ENV = LOCAL_RAIZ / 'package' / '.env'
 
+print(LOCAL_RAIZ)
 hr = datetime.today()
 
 def getDataHora():
