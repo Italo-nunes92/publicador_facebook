@@ -6,6 +6,7 @@ MENSAGENS = LOCAL_RAIZ / 'msg'
 IMAGENS = LOCAL_RAIZ / 'img'
 ERROS = LOCAL_RAIZ / 'erros'
 JSON = LOCAL_RAIZ / 'json'
+ENV = LOCAL_RAIZ / 'package' / '.env'
 
 hr = datetime.today()
 

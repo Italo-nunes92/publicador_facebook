@@ -2,7 +2,7 @@ import facebook
 import json
 import os
 from dotenv import load_dotenv
-from .configuracoes import LOCAL_RAIZ, JSON, MENSAGENS, ERROS, getDataHora, getHoraAtual, getDiaMesAno
+from .configuracoes import LOCAL_RAIZ, JSON, MENSAGENS, ERROS, ENV, getDataHora, getHoraAtual, getDiaMesAno
 
 def erro_log(msg):
     with open((ERROS / 'erro_log.txt'), 'a',encoding='utf8') as arquivo:
@@ -13,7 +13,7 @@ def conectar_token_pag(pag):
     return graph
             
 def conectar_token():
-    load_dotenv()
+    load_dotenv(ENV)
     token = os.environ['token']
     graph = facebook.GraphAPI(access_token = token)
     return graph
