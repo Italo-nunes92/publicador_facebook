@@ -5,7 +5,7 @@ a = Analysis(
     ['publicador_jm.py'],
     pathex=[],
     binaries=[],
-    datas=[('package/configuracoes.py', '.'), ('package/funcoes_jb.py', '.'), ('package/imagens.py', '.')],
+    datas=[('package/configuracoes.py', '.'), ('package/funcoes_jb.py', '.'), ('package/imagens.py', '.'), ('package/local.py', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
