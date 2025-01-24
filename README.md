@@ -40,7 +40,7 @@ Página 4 = Nº: 05 (SERÁ A TERCEIRA, CASO NÃO TENHA 03 E A 04)
 ```
 
 Configure as mensagem na pasta "msg".
-o arquivo ".txt" deve começar com ("loja + "NUMERO DA ORDEM" + .txt) lembrando que o numero que vc indicou na ordem é a referência para buscar o arquivo ".txt":
+o arquivo ".txt" deve começar com ("loja + "NUMERO DA ORDEM" + .txt) lembrando que o numero que você indicou na ordem é a referência para buscar o arquivo ".txt":
 ```
 loja01.txt (SERÁ A MENSAGEM DA PAGINA "Página 1" DEFINIDA NA ORDEM)
 ```
