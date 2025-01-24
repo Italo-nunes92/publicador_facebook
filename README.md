@@ -21,7 +21,8 @@ pip install requests
 
 ### 🔧 Instalação
 
-Primeiramente dentro da pasta "package" crie um arquivo ".env" para definir seu token em como uma variável de ambiente:
+Primeiramente dentro da pasta "package" crie um arquivo ".env" para definir seu token em uma variável de ambiente:
+.env:
 ```
 token = "SeuTokenEntreAspas"
 ```
@@ -71,7 +72,7 @@ cronogama =[
 ```
 As linhas dessa matriz equivalem aos dias da semana, sendo a linha "0" Segunda-feira, as colunas equivalem a ordem dos horários, sendo 4 colunas para 4 horários ao longo do dia.
 
-Os horários você define na mesma função "selecionar_imagem()" logo a baixo da variavél "cronograma"
+Os horários você define na mesma função "selecionar_imagem()" logo a baixo da variável "cronograma"
 
 ```
 if hora_atual in range(0,11): # ENTRE AS 00:00HS ATÉ 10:59HS
@@ -83,22 +84,22 @@ if hora_atual in range(0,11): # ENTRE AS 00:00HS ATÉ 10:59HS
     else:   # ENTRE AS 19:00HS ATÉ 23:59HS
         img = 3
 ```
-Por padrão, o recomendado pelo Facebook é imagens JPG, com tamanho menor que 1mb, porém caso queira usar PNG, você deve mudar na matriz "cronograma" a extenção dos aquivos para "imgXX.png" e descomentar a linha a baixo:
+Por padrão, o recomendado pelo Facebook é imagens JPG, com tamanho menor que 1mb, porém caso queira usar PNG, você deve mudar na matriz "cronograma" a extensão dos arquivos para "imgXX.png" e descomentar a linha a baixo:
 ```
 compactar_imagem(img) 
 ```
-Essa função vai resuzir a imagem para otimizar a postagem na página, configure da maneira que desejar na função "compactar_imagem()" dentro do arquivo "imanges.py"
+Essa função vai reduzir o tamanho da imagem para otimizar a postagem na página, configure da maneira que desejar na função "compactar_imagem()" dentro do arquivo "imanges.py"
 
 compactar_imagem():
 ```
     imagem = Image.open(img)
-    imagem_reduzida = imagem.resize((1000,1000)) # Dimenção da imagem
+    imagem_reduzida = imagem.resize((1000,1000)) # Dimensão da imagem
     imagem_reduzida.save(img,dpi=(72,72)) # Qualidade da imagem
 ```
 
 Pronto, chegando nesse ponto, você já tem a aplicação configurada para executar o arquivo "publicador_jm.py".
 
-Caso não tenha ainda o token do facebook, [Clique Aqui](https://developers.facebook.com/docs/facebook-login/guides/access-tokens?locale=pt_BR#pagetokens), e leia a documentação do facebook para obter e configura um token de acesso da aplicação API do Grupo Meta.
+Caso não tenha ainda o token do facebook, [Clique Aqui](https://developers.facebook.com/docs/facebook-login/guides/access-tokens?locale=pt_BR#pagetokens), e leia a documentação do facebook para obter e configurar um token de acesso da aplicação API do Grupo Meta.
 
 ## ⚙️ Executando o arquivo "publicador_jm.py"
 
@@ -127,9 +128,10 @@ Deseja realmente excluir? [1]SIM ou [2]NÃO: # DIGITE "sim" PARA EXCLUIR, OU "n�
 
 ## 🎁 Considerações
 
-O projeto tirou um peso de todos os gerentes que trabalham na empresa, disponibilizando tempo para outras atividades, tirando o trabalho de postarem manuealmente em suas páginas e centralisando na matriz, assim filtramos falhas de postagem e conseguimos controlar os erros, caso aconteça uma alteração de preço ou outro tipo de ocorrência.
+O projeto tirou um peso de todos os gerentes que trabalham na empresa, disponibilizando tempo para outras atividades, tirando o trabalho de postarem manualmente em suas páginas e centralizando na matriz, assim filtramos falhas de postagem e conseguimos controlar os erros, caso aconteça uma alteração de preço ou outro tipo de ocorrência.
 
-Obrigado pela atenção, e espero que aprovetem para tirar uma boa experiência desse projeto
+Obrigado pela atenção, e espero que aproveitem para tirar uma boa experiência desse projeto
+
 
 
 ---
