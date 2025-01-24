@@ -33,7 +33,7 @@ Digite "0" para remover a página da lista
 Pagina 1 = Nº: (DIGITE O NUMERO DA ORDEM)
 ```
 ```
-Página 1 = Nº: 0 (NÃO SERÁ INCLUIDA NA GRUPO)
+Página 1 = Nº: 0 (NÃO SERÁ INCLUIDA NO GRUPO)
 Página 2 = Nº: 01 (SERÁ A PRIMEIRA NA ORDEM)
 Página 3 = Nº: 02 (SERÁ A SEGUNDA NA ORDEM)
 Página 4 = Nº: 05 (SERÁ A TERCEIRA, CASO NÃO TENHA 03 E A 04)
