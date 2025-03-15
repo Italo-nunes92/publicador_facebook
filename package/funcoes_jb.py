@@ -2,7 +2,7 @@ import facebook
 import json
 import os
 from dotenv import load_dotenv
-from .configuracoes import LOCAL_RAIZ, JSON, MENSAGENS, ERROS, ENV, getDataHora, getHoraAtual, getDiaMesAno
+from .configuracoes import LOCAL_RAIZ, JSON, MENSAGENS, ERROS, ENV, EXTRA ,getDataHora, getHoraAtual, getDiaMesAno
 
 def erro_log(msg):
     with open((ERROS / 'erro_log.txt'), 'a',encoding='utf8') as arquivo:
@@ -110,6 +110,52 @@ def publicar_post(loja, img_selc, token):
         erro_msg = f'{img_selc} não foi encontrada'
         erro_log(erro_msg)
         raise FileNotFoundError('Imagem Inválida')
+    
+def publicar_extra(loja, img_selc, token):
+    
+    loja_msg = EXTRA / 'extra.txt'
+    try:
+        with open(loja_msg, 'r', encoding='utf8') as arquivo:
+            msg = arquivo.read()
+    except:
+        erro_msg = 'Mesagem da loja não foi encontrada'
+        erro_log(erro_msg)        
+        raise FileNotFoundError(erro_msg)
+        
+    try:
+                
+        pag = facebook.GraphAPI(token)
+        id_postagem = pag.put_photo(image=open(img_selc, 'rb'), message=msg)
+        dia_chave = f'{getDiaMesAno()}-{getHoraAtual()-'extra'}'
+
+        postagem_chave = {dia_chave: str(id_postagem.get('post_id'))}
+        postagem_loja = LOCAL_RAIZ / 'postagens' / (loja + '.json' )
+
+        try:
+            with open(postagem_loja, 'r', encoding='utf8') as arquivo:
+                loja_arquivo = json.load(arquivo)
+        
+            loja_arquivo.update(postagem_chave)
+        
+            with open(postagem_loja, 'w', encoding='utf8') as arquivo:
+                json.dump(loja_arquivo, arquivo, indent=2, ensure_ascii=False)
+                
+        except FileNotFoundError:
+            with open(postagem_loja, 'w', encoding='utf8') as arquivo:
+                json.dump(postagem_chave, arquivo, indent=2, ensure_ascii=False)
+                
+        print(f'Postagem na Página {loja} foi efetuada com sucesso.')
+        
+    except facebook.GraphAPIError:
+        erro_msg = f'{loja} Token Inválido'
+        erro_log(erro_msg)      
+        raise KeyError("Token Inválido")
+        
+
+    except FileNotFoundError:
+        erro_msg = f'{img_selc} não foi encontrada'
+        erro_log(erro_msg)
+        raise FileNotFoundError('Imagem Inválida')
             
         
 def excluir_publicacao(loja, token, selecao):
@@ -137,4 +183,5 @@ def abrir_postagens(loja):
     with open(postagem_loja, 'r', encoding='utf8') as arquivo:
             post = json.load(arquivo)
     return post
+        
         

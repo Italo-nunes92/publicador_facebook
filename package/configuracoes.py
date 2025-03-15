@@ -5,6 +5,7 @@ from pathlib import Path
 LOCAL_RAIZ = Path(__file__).absolute().parent.parent
 MENSAGENS = LOCAL_RAIZ / 'msg'
 IMAGENS = LOCAL_RAIZ / 'img'
+EXTRA = LOCAL_RAIZ / 'extra'
 ERROS = LOCAL_RAIZ / 'erros'
 JSON = LOCAL_RAIZ / 'json'
 ENV = LOCAL_RAIZ / 'package' / '.env'
@@ -25,3 +26,4 @@ def getHoraAtual():
     hr = datetime.today()
     hora_atual = hr.hour
     return hora_atual
+

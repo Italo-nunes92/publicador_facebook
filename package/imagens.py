@@ -1,4 +1,4 @@
-from .configuracoes import IMAGENS, hr, getHoraAtual
+from .configuracoes import IMAGENS, EXTRA ,hr, getHoraAtual
 from PIL import Image
 import requests
 
@@ -50,4 +50,10 @@ def selecionar_imagem():
     # compactar_imagem(img) 
     
     return img
+
+def img_extra():
+    img = EXTRA / 'extra.jpg'
+    # compactar_imagem(img)
+    return img
+    
 
