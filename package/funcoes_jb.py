@@ -126,7 +126,7 @@ def publicar_extra(loja, img_selc, token):
                 
         pag = facebook.GraphAPI(token)
         id_postagem = pag.put_photo(image=open(img_selc, 'rb'), message=msg)
-        dia_chave = f'{getDiaMesAno()}-{getHoraAtual()-'extra'}'
+        dia_chave = f'{getDiaMesAno()}-{getHoraAtual()}-extra'
 
         postagem_chave = {dia_chave: str(id_postagem.get('post_id'))}
         postagem_loja = LOCAL_RAIZ / 'postagens' / (loja + '.json' )
